@@ -1,0 +1,13 @@
+<% @books.each do |book| %>
+  <div>
+    <!--ユーザーに付属する画像の表示に必要なのか-->
+    <!--<＠= image_tag @book.get_image %>-->
+    <h1>Books</h1>
+    <p>Title：<%= @book.title %></p>
+    <p>Opinion：<%= @book.body %></p>
+    <!--book.user.nameなのかbook.nameなのか-->
+    <p>name：<%= @book.user.name %></p>
+    <!--user  = User.find(book.user_id)-->
+    <!--user.name-->
+  </div>
+<% end %>
