@@ -1,3 +1,7 @@
+<h1>show.html.erb</h1>
+
+
+<h1>Book detail</h1>
 <div>
   <!--ユーザーに付属する画像の表示に必要なのか-->
   <!--<＠= image_tag @book.get_image %>-->
@@ -10,4 +14,6 @@
   <% if @book.user == current_user %>
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
+  
+  
 </div>

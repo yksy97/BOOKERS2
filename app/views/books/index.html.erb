@@ -11,21 +11,26 @@
   
 <% end %>
 
+<!--一覧画面に詳細画面リンク-->
+<!--<= link_to book_path(book.id) do %>-->
+
+<!--<= image_tag book.get_image %>-->
 
 
-<!--<h1>Books</h1>-->
-<!--< @books.each do |book| %>-->
-<!--<div>-->
-<!--  <= link_to book_path(book.id) do %>-->
-<!--  <= image_tag book.get_image %>-->
-<!--  < end %>-->
-  
-<!--  <p>user_photo：<= image_tag book.user.get_profile_image(100,100) %></p>-->
-  
-<!--  <p>Title：<= book.title %></p>-->
-<!--  <p>Opinion：<= book.body %></p>-->
-  
-<!--  <p>name：<= book.user.name %></p>-->
-  
-<!--</div>-->
-<!--< end %>-->
+
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+  <div>
+    <%= link_to book_path(book.id) do %>
+      <!--<= image_tag book.get_image %>-->
+    <% end %>
+    
+    <!--<p>user_photo：<= image_tag book.user.get_profile_image(100,100) %></p>-->
+    
+    <p>Title：<%= book.title %></p>
+    <p>Opinion：<%= book.body %></p>
+    
+    <p>name：<%= book.user.name %></p>
+  </div>
+<% end %>
