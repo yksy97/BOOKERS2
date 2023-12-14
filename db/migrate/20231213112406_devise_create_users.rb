@@ -34,6 +34,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       
       # Sign upに必要な名前を保存
       t.string :name
+      
+      #ユーザーeditのintroduction
+      t.text :Introduction
 
 
       t.timestamps null: false

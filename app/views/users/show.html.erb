@@ -10,6 +10,7 @@
       </tr>
       <tr>
         <th>introduction</th>
+        <p><%= link_to "編集(仮)", edit_user_path(@user) %></p>
       </tr>
     </tbody>
   </table>
@@ -20,7 +21,7 @@
   <%= link_to book_path(book.id) do %>
     <%= image_tag book.get_image %>
   <% end %>
-  <p> ：<%= image_tag book.user.get_profile_image(100,100) %></p>
+  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
   <p>Title：<%= book.title %></p>
   <p>Opinion：<%= book.body %></p>
   <!--<p>name：<= book.user.name %></p>-->
@@ -48,3 +49,18 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
+
+<h1>Books</h1>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <% if @book.user == current_user %>
+        <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+        <% end %>
+      </td>
+      <td><%= link_to @book.title, book_path(@book) %></td>
+      <td><%= @book.body %></td>
+    </tr>
+  </tbody>
+</table>
