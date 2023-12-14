@@ -1,19 +1,36 @@
-<h1>show.html.erb</h1>
-
-
 <h1>Book detail</h1>
-<div>
-  <!--ユーザーに付属する画像の表示に必要なのか-->
-  <!--<＠= image_tag @book.get_image %>-->
-  <p>Title：<%= @book.title %></p>
-  <p>Opinion：<%= @book.body %></p>
-  <!--book.user.nameなのかbook.nameなのか-->
-  <p>name：<%= @book.user.name %></p>
-  <!--user  = User.find(book.user_id)-->
-  <!--user.name-->
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
-  
-  
-</div>
+<table>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= link_to "<%= book.title %>", book_path(book) %></td>
+        <td><%= book.body %></td>
+        <td>
+          <% if book.user == current_user %>
+            <%= link_to "Edit", edit_book_path(book) %>
+            <%= link_to "Destroy", book_path(book), method: :delete, "confirm" => "本当に消しますか？"  %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--bookersを参考に下記から上記に変更-->
+<!--<h1>Book detail</h1>-->
+<!--<table>-->
+<!--  <tbody>-->
+<!--  < @books.each do |book| %>-->
+<!--  <tr>-->
+<!--    <td><= book.title %></td>-->
+<!--    <td><= book.body %></td>-->
+<!--    < if book.user == current_user %>-->
+<!--    <td><= link_to "Edit", edit_book_path(@book) %></td>-->
+<!--    <td><= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" =>"本当に消しますか？" %></td>-->
+<!--    < end %>-->
+<!--  </tr>-->
+<!--  < end %>-->
+<!--</tbody>-->
+<!--       </tbody>-->
+<!--</table>-->
+<!--<div>-->
