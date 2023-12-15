@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   def show
     # ActiveRecord::RecordNotFound in BooksController#show(12/14 8:30)
     @book = Book.find(params[:id])
+    @user = @book.user
   end
   
   def edit
