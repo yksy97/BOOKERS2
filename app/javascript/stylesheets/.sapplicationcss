@@ -2,6 +2,6 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-.navbar {
+.navbar
   background-color: #343a40;
 }
