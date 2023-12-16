@@ -37,6 +37,10 @@ class UsersController < ApplicationController
   def check_user
     redirect_to(root_url) unless @user == current_user
   end
+  
+  def set_book
+  @book = Book.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :profile_image, :introduction)
