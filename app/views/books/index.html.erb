@@ -1,18 +1,5 @@
-<div>
-  <h1>User info</h1>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <table>
-    <tbody>
-      <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>introduction</th>
-        <p><%= link_to "編集(仮)", edit_user_path(@user) %></p>
-      </tr>
-    </tbody>
-  </table>
+<!--User info-->
+<%= render 'users/info', user: @user %>
 
 <!--New book-->
 <%= render 'list', book: @book %>

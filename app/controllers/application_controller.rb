@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:top]
   
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
+  
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  
   # ユーザー情報の編集をアクセス制限
   before_action :check_user, only: [:edit, :update, :destroy]
   
