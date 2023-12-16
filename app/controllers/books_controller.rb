@@ -23,26 +23,29 @@ class BooksController < ApplicationController
     @user = current_user
   end
   
-  def show
+def show
+    @book = Book.find(params[:id])
     @user = @book.user
   end
-  
+
   def edit
-    
+    @book = Book.find(params[:id])
+    # 必要ならここで check_user を呼び出す
   end
-  
+
   def update
-      if @book.update(book_params)
-       flash[:notice] = "You have updated book successfully."
-       redirect_to books_path
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "You have updated book successfully."
+      redirect_to books_path
     else
       render :edit
     end
   end
-  
+
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
+    @book = Book.find(params[:id])
+    @book.destroy
     redirect_to books_path
   end
 
@@ -53,12 +56,9 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
   
-  def set_book
-  @book = Book.find(params[:id])
-  end
-  
   def check_user
     redirect_to books_path unless @book.user == current_user
   end
   
 end
+
