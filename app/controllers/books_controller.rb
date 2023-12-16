@@ -18,28 +18,21 @@ class BooksController < ApplicationController
     
   def index
     @book = Book.new
-    # @user = current_user
     @books = Book.all
   end
   
   def show
-    # ActiveRecord::RecordNotFound in BooksController#show(12/14 8:30)
-    @book = Book.find(params[:id])
     @user = @book.user
   end
   
   def edit
-    # is_matching_login_user
-    @book = Book.find(params[:id])
+    
   end
   
   def update
-    @book = Book.find(params[:id])
-    # @book.user_id = current_user.id
-    if @book.save
-       @book.update(book_params)
+      if @book.update(book_params)
        flash[:notice] = "You have updated book successfully."
-       redirect_to books_path(@book.id)
+       redirect_to books_path(@book)
     else
       render :edit
     end
@@ -58,11 +51,12 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
   
-  def is_matching_login_user
-    user_id = params[:id]
-    login_user_id = current_user.id
-    if(user_id != login_user_id)
-      redirect_to books_path
-    end
+  def set_book
+  @book = Book.find(params[:id])
   end
+  
+  def check_user
+    redirect_to books_path unless @book.user == current_user
+  end
+  
 end

@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   # ログインなしでトップページ以外に移行しようとするとログイン画面へリダイレクト
   before_action :authenticate_user!, except: [:top]
-  # 下記のeditを消すと編集（仮）に行ける
-  before_action :is_matching_login_user, only: [:edit, :update]
-
-  before_action :set_user, only: [:create, :index, :update]
+  
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
+  # ユーザー情報の編集をアクセス制限
+  before_action :check_user, only: [:edit, :update, :destroy]
+  
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   

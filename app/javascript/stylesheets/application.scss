@@ -2,12 +2,28 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-main {
-  display: block;
+// main {
+//   display: block;
+// }
+
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+.col {
+  border: solid 0px;
+  padding: 0 15px;
+  // margin: 0 45px;
 }
 
-.row {
-  display: flex;
+.Bookers {
+  margin: 0 0 8px;
+}
+
+.btn-box {
+  padding: 0 15px;
+  width: 100%;
 }
 
 // Bootstrapで作成したボタンはカーソルを合わせるとbackground-colorの色が消える
