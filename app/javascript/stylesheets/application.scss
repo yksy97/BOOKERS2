@@ -10,8 +10,21 @@ main {
   display: flex;
 }
 
+// Bootstrapで作成したボタンはカーソルを合わせるとbackground-colorの色が消える
+// ＝カーソルによって色に変化をつけたくないときは基本的に:hoverを入れる
+.btn-login:hover {
+  background-color: #17a2b8;
+  color: white;
+}
+// 上記のようにすると逆にカーソルを合わせないと色がつかなくなった
 .btn-login {
   background-color: #17a2b8;
+  color: white;
+}
+// 上記で解決したけど正規の解決法ではないと思う
+
+.btn-signup:hover {
+  background-color: #28A745;
   color: white;
 }
 
