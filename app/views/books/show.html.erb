@@ -2,7 +2,9 @@
    <div class="container">
    <div class="row">
 <!--User info,New book-->
+<div class="col-md-3">
 <%= render partial: 'list', locals: { user: @user, book: @book } %>
+</div>
 
 <h1>Book detail</h1>
 <table>
