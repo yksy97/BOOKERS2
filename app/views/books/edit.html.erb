@@ -18,20 +18,19 @@
         <%= form_with model: book do |f| %>
         <div class="form-lists">
           <p>Title</p>
-          <input><%= f.text_field :title %></input>
+          <p><%= f.text_field :title %></p>
         </div>
         <div class="form-lists">
           <p>Opinion</p>
-          <input><%= f.text_area :body %></input>
+          <p><%= f.text_area :body %></p>
         </div>
         <div class="form-lists">
-          <input><%= f.submit 'Update Book', class: "btn btn-success" %></input>
+          <p><%= f.submit 'Update Book', class: "btn btn-success" %></p>
           <% end %>
         </div>
         </form>
         <%= link_to "Show", book_path(@book) %> |
         <%= link_to "Back", books_path(@book) %>
-        books/id/showとbooks/backのリンク　show|Back
       </div>
     </div>
   </div>
