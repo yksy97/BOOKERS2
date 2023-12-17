@@ -13,6 +13,7 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = current_user
+      flash.now[:notice] = "errors prohibited this obj from being saved:"
       render :index
     end
   end
@@ -30,7 +31,6 @@ def show
 
   def edit
     @book = Book.find(params[:id])
-    # 必要ならここで check_user を呼び出す
   end
 
   def update
@@ -39,6 +39,7 @@ def show
       flash[:notice] = "You have updated book successfully."
       redirect_to books_path
     else
+      flash.now[:notice] = "errors prohibited this obj from being saved:"
       render :edit
     end
   end

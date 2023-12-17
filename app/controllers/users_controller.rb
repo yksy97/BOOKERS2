@@ -6,10 +6,16 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   else
     @users = User.all
+    flash.now[:notice] = "errors prohibited this obj from being saved:"
     render :index
   end
   end
-
+  
+  def index
+    @users = User.all
+    @books = Book.all
+  end
+  
   def show
     @books = @user.books
     @book = Book.new
@@ -24,6 +30,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user)
     else
+      flash.now[:notice] = "errors prohibited this obj from being saved:"
       render :edit
     end
   end
