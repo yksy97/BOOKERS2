@@ -1,4 +1,5 @@
 <main>
+  <div class="container px-5 px-sm-0">
 <!--User info,New book-->
 <%= render partial: 'books/list', locals: { user: @user, book: @book } %>
 
@@ -24,6 +25,9 @@
     </tbody>
   </table>
 </div>
+</div>
 </main>
 
-      
+
+<!--Bootstrap:px-sm-0-->
+<!--https://qiita.com/nakanishi03/items/c80a16b9b9796c25f890-->

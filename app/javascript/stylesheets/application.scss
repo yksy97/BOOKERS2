@@ -11,6 +11,26 @@
 //   flex-wrap: wrap;
 // }
 
+main {
+  display: block;
+} 
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.user-info-table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+// 1rem=16px
+// https://plus1jp.com/2022/03/28/css_rem/
+
+
+
+
 .col {
   border: solid 0px;
   padding: 0 15px;
@@ -26,6 +46,17 @@
   width: 100%;
 }
 
-.btn {
+.btn-info {
   color: white;
+}
+
+.form-text {
+  width: 100%;
+  padding: auto;
+}
+
+
+.col-md-3 {
+  width: 100%;
+  padding: 0 15px 0 15px;
 }

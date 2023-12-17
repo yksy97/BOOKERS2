@@ -3,6 +3,7 @@
 <!--User info,New book-->
 <%= render partial: 'list', locals: { user: @user, book: @book } %>
 
+<div class="col-md-8 offset-md-1">
 <h1>Books</h1>
 <table>
   <thead>
@@ -23,6 +24,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 </main>
 
 <!--colspan(コルスパン)=結合セル＝テーブルのセルを水平方向に繋げる-->
