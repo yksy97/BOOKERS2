@@ -1,7 +1,6 @@
-<!--User info-->
-<%= render 'info', user: @user %>
-  
-<%= render 'books/list', book: @book %>
+<!--User info,New book-->
+<%= render partial: 'books/list', locals: { user: @user, book: @book } %>
+
 
 <h1>Books</h1>
 <table>

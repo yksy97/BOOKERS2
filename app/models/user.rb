@@ -9,8 +9,8 @@ devise :database_authenticatable, :registerable,
         
         
         validates :name, uniqueness: true, length: { in: 2..20 }
-        validates :introduction, presence: true, length: { maximum: 50 }
-        validates :profile_image, presence: true
+        validates :introduction, presence: true, length: { maximum: 50 }, on: :update
+        validates :profile_image, presence: true, on: :update
               
 
 #   def get_profile_image
@@ -25,12 +25,11 @@ devise :database_authenticatable, :registerable,
 
 
 def get_profile_image(width, height)
-    if self.profile_image.attached?
-      self.profile_image.variant(resize_to_limit: [width, height]).processed
-    else
-      file_path = Rails.root.join('app/assets/images/sample-author1.jpg')
-      self.profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-      self.profile_image.variant(resize_to_limit: [width, height]).processed
-    end
+  unless profile_image.attached?
+    file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
+  profile_image.variant(resize_to_limit: [width, height]).processed
 end
+end
+# validatesの範囲を指定→　on: :action

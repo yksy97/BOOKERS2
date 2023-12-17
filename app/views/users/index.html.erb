@@ -1,35 +1,5 @@
-<!--<ユーザー情報>-->
-<div>
-  <h1>User info</h1>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <table>
-    <tbody>
-      <tr>
-        <th>name</th>
-        <th><%= @user.name %></th>
-      </tr>
-      <tr>
-        <th>introduction</th>
-        <p><%= link_to "編集(仮)", edit_user_path(@user) %></p>
-      </tr>
-    </tbody>
-  </table>
-
-<!-- ユーザーの投稿一覧 -->
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>Title：<%= book.title %></p>
-  <p>Opinion：<%= book.body %></p>
-  <!--<p>name：<= book.user.name %></p>-->
-</div>
-<% end %>
-
-
-<%= render 'books/list', book: @book %>
+<!--User info,New book-->
+<%= render partial: 'books/list', locals: { user: @user, book: @book } %>
 
 
 <h2>Users</h2>

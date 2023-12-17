@@ -1,18 +1,60 @@
-<h1>New book</h1>
-<div>
-   <% if book.errors.any? %>
-    <%= book.errors.count %> errors prohibited this obj from being saved:
-  <ul>
-    <% book.errors.full_messages.each do |message|%>
-      <li><= message %></li>
+<div class="col-md-3">
+  <h1>User info</h1>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <table>
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="row">
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary" do %>
+    <i class="fa-solid fa-user-gear"></i>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+  
+  <h2 class="mt-3">New book</h2>
+  <form>
+    <% if book.errors.any? %>
+    <%= book.errors.count %> errors prohibited this obj from being saved:
+    <ul>
+      <% book.errors.full_messages.each do |message|%>
+      <li><= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    
+    <%= form_with model: book do |f| %>
+    <div class="form-lists">
+      <p>Title</p>
+      <input><%= f.text_field :title %></input>
+    </div>
+    <div class="form-lists">
+      <p>Opinion</p>
+      <input><%= f.text_area :body %></input>
+    </div>
+    <div class="form-lists">
+      <input><%= f.submit 'Create Book', class: "btn btn-success" %></input>
+      <% end %>
+    </div>
+  </form>
 </div>
-<%= form_with model: book do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book', class: "btn btn-success" %>
-<% end %>
+
+
+
+<!--パーシャル(部分テンプレート)でインスタンス変数が複数ある場合-->
+<!--https://zenn.dev/hal_mat/articles/83f37edda263f762899f-->
+<!--１種類-->
+<!--<= render 'list', book: @book %>-->
+<!--２種類-->
+<!--<= render partial: 'list', locals: { user: @user, book: @book } %>-->
+
+<!--fromタグ＝送信フォームを作成する際に使用する要素-->
+<!--https://html-coding.co.jp/annex/dictionary/html/form/-->
