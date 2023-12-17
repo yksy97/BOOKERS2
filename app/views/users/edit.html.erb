@@ -1,3 +1,4 @@
+<main>
 <% if @user.errors.any? %>
   <%= @user.errors.count %> errors prohibited this obj from being saved:
   <ul>
@@ -7,15 +8,35 @@
   </ul>
 <% end %>
 
-<h2>User info</h2>
-<%= form_with model: @user do |f| %>
-  <label for="inputName">Name</label>
-  <!--autofocus: trueとは、ページを読み込むとカーソルが移動して入力状態になる。ファイルに１つまで。-->
-  <%= f.text_field :name, autofocus: true, id: "inputName" %>
-  <label for="inputImage">Image</label>
-  <%= f.file_field :profile_image, placeholder: "画像", accept: "image/*" %>
-  <!--ユーザーモデルにIntroductionのカラムをつける-->
-  <label for="inputIntroduction">Introduction</label>
-  <%= f.text_field :introduction %>
-  <%= f.submit "Update User", class: "btn btn-secondary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+      <form>
+      <%= form_with model: @user do |f| %>
+        <div class="form-lists">
+          <label for="inputName">Name</label>
+          <%= f.text_field :name, autofocus: true, id: "inputName" %>
+        </div>
+        <div class="form-lists">
+          <label for="inputImage">Image</label>
+          <%= f.file_field :profile_image, placeholder: "画像", accept: "image/*" %>
+        </div>
+        <div class="form-lists">
+          <label for="inputIntroduction">Introduction</label>
+          <%= f.text_field :introduction %>
+        </div>
+        <div class="form-lists">
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+
+<!--labelタグにfor属性を付けるべき理由-->
+<!--https://style.potepan.com/articles/20037.html-->
+
+<!--autofocus: trueとは、ページを読み込むとカーソルが移動して入力状態になる。ファイルに１つまで。-->

@@ -1,8 +1,6 @@
+<main>
 <!--User info,New book-->
 <%= render partial: 'list', locals: { user: @user, book: @book } %>
-
-
-
 
 <h1>Book detail</h1>
 <table>
@@ -17,23 +15,15 @@
       <td><%= @book.body %></td>
       <% if @book.user == current_user %>
         <td>
-          <%= link_to "Edit", edit_book_path(@book) ,class: "btn btn-success" %>
-          
-          
-          <%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-danger" %>
-        
-        
-        
+          <%= link_to "Edit", edit_book_path(@book) ,class: "btn btn-sm btn-success" %>
+          <%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-sm btn-danger" %>
         </td>
       <% end %>
     </tr>
   </tbody>
 </table>
-
+</main>
 <!--改行<br>-->
-
-
-
 
 
 
