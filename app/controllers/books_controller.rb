@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
   
   def new
     @book = Book.new
@@ -13,7 +14,6 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = current_user
-      flash.now[:notice] = "errors prohibited this obj from being saved:"
       render :index
     end
   end
@@ -39,7 +39,6 @@ def show
       flash[:notice] = "You have updated book successfully."
       redirect_to books_path
     else
-      flash.now[:notice] = "errors prohibited this obj from being saved:"
       render :edit
     end
   end

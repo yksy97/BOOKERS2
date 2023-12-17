@@ -416,7 +416,7 @@ Failures:
      [31m  expected to find link "Back" with href "/books" but there were no matches[0m
      [36m# ./spec/system/02_after_login_spec.rb:237:in `block (4 levels) in <main>'[0m
 
-  10) [STEP2] ユーザログイン後のテスト 自分の投稿編集画面のテスト 編集成功のテスト リダイレクト先が、更新した投稿の詳細画面になっている
+ koko 10) [STEP2] ユーザログイン後のテスト 自分の投稿編集画面のテスト 編集成功のテスト リダイレクト先が、更新した投稿の詳細画面になっている
       [31mFailure/Error: expect(current_path).to eq '/books/' + book.id.to_s[0m
       [31m[0m
       [31m  expected: "/books/1"[0m
@@ -1001,7 +1001,7 @@ Failures:
       [36m#   Did you mean?  user_session_path[0m
       [36m#   ./app/views/users/index.html.erb:22:in `block in _app_views_users_index_html_erb__1969226094159734066_29480'[0m
 
-  23) [STEP2] ユーザログイン後のテスト 自分のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
+koko  23) [STEP2] ユーザログイン後のテスト 自分のユーザ詳細画面のテスト 表示の確認 投稿一覧のユーザ画像のリンク先が正しい
       [31mFailure/Error: expect(page).to have_link '', href: user_path(user)[0m
       [31m  expected to find link "" with href "/users/1" but there were no matches[0m
       [36m# ./spec/system/02_after_login_spec.rb:324:in `block (4 levels) in <main>'[0m

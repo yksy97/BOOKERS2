@@ -9,7 +9,7 @@ devise :database_authenticatable, :registerable,
         
         
         validates :name, uniqueness: true, length: { in: 2..20 }
-        validates :introduction, length: { maximum: 50 }, on: :update
+        validates :introduction, length: { maximum: 50  }, on: :update
               
 
 

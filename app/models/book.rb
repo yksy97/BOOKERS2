@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   
   
   validates :title, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 200 }
   
   # 画像が存在しない場合に表示する画像をActiveStorageに格納する
   # def get_image

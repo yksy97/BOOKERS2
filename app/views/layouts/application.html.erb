@@ -20,10 +20,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link text-light" href="/"><i class="fa-solid fa-house"></i> Home </a>
-            </li>
               <% if user_signed_in? %>
+             <li class="nav-item">
+               <!--a hrefでパラメータのついたリンクの付け方がわからない-->
+              <a class="nav-link text-light" href="/users"><i class="fa-solid fa-house"></i> Home </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="/users"><i class="fa-solid fa-users"></i> Users </a>
             </li>
@@ -34,6 +35,9 @@
               <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fa-solid fa-right-from-bracket"></i> Log out </a>
             </li>
               <% else %>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/"><i class="fa-solid fa-house"></i> Home </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="/home/about"><i class="fa-solid fa-link"></i> About </a>
             </li>
@@ -51,9 +55,9 @@
   </header>
   
   <main>
-    <div>
-      <%= flash[:notice] %>
-    </div>
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </main>
   
