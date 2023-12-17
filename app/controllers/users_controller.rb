@@ -2,15 +2,15 @@ class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   
   def create
-  @user = User.new(user_params)
-  if @user.save
-    flash[:notice] = "Signed in successfully."
-    redirect_to user_path(@user)
-  else
-    @users = User.all
-    flash.now[:notice] = "errors prohibited this obj from being saved:"
-    render :index
-  end
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "Signed in successfully."
+      redirect_to user_path
+    else
+      @users = User.all
+      flash.now[:notice] = "errors prohibited this obj from being saved:"
+      render :index
+    end
   end
   
   def index
