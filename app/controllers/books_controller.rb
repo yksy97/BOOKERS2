@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  # before_action :is_matching_login_user, only: [:edit, :update]
   
   def new
     @book = Book.new
@@ -39,7 +38,7 @@ def show
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "You have updated book successfully."
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       render :edit
     end
@@ -64,10 +63,5 @@ def show
       redirect_to(books_path)
     end
   end
-  
-  # def check_user
-  #   redirect_to books_path unless @book.user == current_user
-  # end
-  
 end
 
