@@ -8,8 +8,9 @@ devise :database_authenticatable, :registerable,
         has_one_attached :profile_image
         
         
-        validates :name, uniqueness: true, length: { in: 2..20 }
-        validates :introduction, length: { maximum: 50  }, on: :update
+        validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
+        validates :introduction, length: { maximum: 50 }
+       
               
 
 

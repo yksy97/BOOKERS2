@@ -21,10 +21,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <% if user_signed_in? %>
-             <li class="nav-item">
-               <!--a hrefでパラメータのついたリンクの付け方がわからない-->
-              <a class="nav-link text-light" href="/users"><i class="fa-solid fa-house"></i> Home </a>
-            </li>
+             <!--a hrefでパラメータのついたリンクの付け方がわからない-->
+            <li class="nav-item">
+              <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+                <i class="fa-solid fa-house"></i> Home
+              <% end %>
+            </li>   
             <li class="nav-item">
               <a class="nav-link text-light" href="/users"><i class="fa-solid fa-users"></i> Users </a>
             </li>

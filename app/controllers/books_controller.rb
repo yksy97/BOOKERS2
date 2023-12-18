@@ -30,8 +30,9 @@ def show
   end
 
   def edit
-    @book = Book.find(params[:id])
+  @book = Book.find(params[:id])
   end
+
 
   def update
     @book = Book.find(params[:id])
@@ -56,9 +57,16 @@ def show
     params.require(:book).permit(:title, :body)
   end
   
-  def check_user
-    redirect_to books_path unless @book.user == current_user
+  def correct_user
+    @book = Book.find(params[:id])
+    unless current_user == @book.user
+      redirect_to(books_path)
+    end
   end
+  
+  # def check_user
+  #   redirect_to books_path unless @book.user == current_user
+  # end
   
 end
 
