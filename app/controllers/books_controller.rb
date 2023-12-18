@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
+  # before_action :is_matching_login_user, only: [:edit, :update]
   
   def new
     @book = Book.new

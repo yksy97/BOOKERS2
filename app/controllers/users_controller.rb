@@ -20,8 +20,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    @books = @user.books
-    @book = Book.new
+  @user = User.find(params[:id])
+  @books = @user.books
+  @book = Book.new
   end
   
   def edit
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
   else
     render :edit
   end
-end
+  end
 
   private
   
